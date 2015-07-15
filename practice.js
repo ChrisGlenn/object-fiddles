@@ -103,7 +103,6 @@ Instead, console.log your whole backPack object and then check out the console. 
   }
 
 
-
 //NEXT PROBLEM
 
 
@@ -112,11 +111,20 @@ Instead, console.log your whole backPack object and then check out the console. 
 //Create an Object called 'album' with 5 keys named different song titles that you make up, with the values being the length of each song.
 
   //Code Here
+  var album = {
+    song: '3:05',
+    hey: '7:02',
+    brickwall: '2:01',
+    monkey: '10:30',
+    fin: '11:20'
+  }
 
 //Now, loop through your album object alerting every song title individually.
 
   //Code Here
-
+  for(var title in album){
+    alert(title);
+  }
 
 
 
@@ -128,11 +136,22 @@ Instead, console.log your whole backPack object and then check out the console. 
 //Create an object called states that has 5 US states as properties with the values being their population (doesn't have to be accurate).
 
   //Code Here
+  var states = {
+    California: 13000000,
+    Utah: 3000000,
+    Nevada: 4000000,
+    Washington: 8000000,
+    Delaware: 5
+  }
 
 //Now, loop through your states object and if the states population is greater than 30K, alert that state.
 
   //Code Here
-
+  for(var pop in states){
+  if(states[pop] > 30000){
+     alert(states[pop]);
+  }
+}
 
 
 
@@ -153,13 +172,18 @@ var user = {
 that each value is truthy. If it's not truthy, remove it from the object. */
 
   //Code Here
+  for(var key in user){
+    if(!user[key]){
+      delete user[key];
+    }
+  }
 
 //Once you get your truthy Object, Change the remaining values in the object to be specific to you (name: 'your name', username: 'your username'), rather than my information.
 
   //Code Here
-
-
-
+  user.name = 'Chris';
+  user.pwHash = '300200505';
+  user.username = 'chris.glenn';
 
 //NEXT PROBLEM
 
@@ -181,11 +205,13 @@ var user = {
 // name -> 'Tyler S. McGinnis', email -> 'tyler.mcginnis@devmounta.in'. Make that change.
 
   //Code Here
+  user.name = 'Tyler S. McGinnis';
+  user.email = 'tyler.mcginnis@devmounta.in';
 
 //Now call the sayName method that's on the user object which will alert the users email
 
   //Code Here
-
+  user.sayName();
 
 
 
@@ -197,18 +223,28 @@ var user = {
 //Create an empty object called methodCollection.
 
   //Code Here
+  var methodCollection = {
+
+  }
 
 /*Now add two methods (functions that are properties on objects) to your methodCollection
 object. One called 'alertHello' which alerts 'hello' and another method called logHello
  which logs 'hello' to the console. */
 
   //Code Here
+  methodCollection.alertHello = function(){
+    alert('hello');
+  }
+
+  methodCollection.logHello = function(){
+    console.log('hello');
+  }
 
 //Now call your alertHello and logHello methods.
 
   //Code Here
-
-
+  methodCollection.alertHello();
+  methodCollection.logHello();
 
 //NEXT PROBLEM
 
@@ -217,18 +253,39 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 // Create a function called MakePerson which takes in name, birthday, ssn as its parameters and returns a new object with all of the information that you passed in.
 
   //Code Here
+  var name = 'chris';
+  var birthday = '9/12/83';
+  var ssn = '123456789';
 
+  var makePerson = function(name, birthday, ssn){
+    var person = {
+      name,
+      birthday,
+      ssn
+    }
 
+    return person;
+  }
 
 //NEXT PROBLEM
-
 
 
 // Create a function called MakeCard which takes in all the data it needs to make a Credit Card object and returns that object so that whenever you invoke MakeCard, you get a brand new credit card.
 
   //Code Here
-  
-  
+  var cardNumber;
+  var expDate = "10/18";
+  var securityCode;
+
+  var makeCard = function(cardNumber, expDate, securityCode){
+    var creditCard = {
+      cardNumber: Math.floor(Math.random()*9999999999999999)+1111111111111111,
+      expDate,
+      securityCode: Math.floor(Math.random()*999)+111
+    }
+
+    return creditCard;
+  }
   
 //NEXT PROBLEM
 
@@ -240,5 +297,11 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 */
 
   //Code Here
+  var bindCard = function(person, creditCard){
+      var boundInfo = {};
+      for(var att in person){boundInfo[att] = person[att];}
+      for(var att in creditCard){boundInfo[att] = creditCard[att];}
+      return boundInfo;
+  }
 
 
