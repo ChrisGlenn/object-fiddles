@@ -258,7 +258,7 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
   var ssn = '123456789';
   var person = {};
 
-  var makePerson = function(name, birthday, ssn){
+  var makePerson = function(name, birthday, ssn, person){
     var person = {
       name,
       birthday,
@@ -279,7 +279,7 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
   var securityCode;
   var creditCard = {};
 
-  var makeCard = function(cardNumber, expDate, securityCode){
+  var makeCard = function(cardNumber, expDate, securityCode, creditCard){
     var creditCard = {
       cardNumber: Math.floor(Math.random()*9999999999999999)+1111111111111111,
       expDate,
@@ -301,7 +301,7 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
   //Code Here
   var boundInfo = {};
 
-  var bindCard = function(person, creditCard){
+  var bindCard = function(person, creditCard, boundInfo){
       for(var att in person){boundInfo[att] = person[att];}
       for(var att in creditCard){boundInfo[att] = creditCard[att];}
       return boundInfo;
